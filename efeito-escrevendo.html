@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<style>
+	.cursor{
+		animation: blink .6s infinite;
+	}
+
+	@-webkit-keyframes blink{
+		from{
+			opacity: 0;
+		}
+
+		to{
+			opacity: 1;
+		}
+	}
+
+</style>
+<body>
+
+	<h1><span class="digitado">Olá tudo bem?</span><span class="cursor">|</span></h1>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		jQuery(document).ready(function(){
+			var text = jQuery('.digitado').text();
+			jQuery('.digitado').text('');
+			var arr = text.split('');
+
+			count =0;
+
+
+			var	intervalo = setInterval(function(){
+				jQuery('.digitado').append(arr[count]);
+				count++;
+
+				if(count == arr.length){
+					clearInterval(intervalo);
+				}
+			}, 150);
+
+
+			
+		});
+	</script>
+	
+</body>
+</html>
