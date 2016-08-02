@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>document</title>
+</head>
+
+<style>
+	img{
+		animation: greyscale infinite 5s;
+		animation-direction: alternate;
+
+	}
+
+	div{
+		animation: blur infinite 8s;
+		animation-direction: alternate;
+	}
+
+	section{
+		animation: saturate infinite 10s;
+		animation-direction: alternate;
+	}
+
+	@keyframes greyscale{
+		from{
+			-webkit-filter: hue-rotate(0deg); /* Chrome, Safari, Opera */
+    filter: hue-rotate(0deg);
+		}
+
+		to{
+			-webkit-filter: hue-rotate(90deg); /* Chrome, Safari, Opera */
+    filter: hue-rotate(90deg);
+		}
+	}
+
+	@keyframes blur{
+		from{
+			  -webkit-filter: invert(0%); /* Chrome, Safari, Opera */
+    filter: invert(0%);
+		}
+
+		to{
+			   -webkit-filter: invert(40%); /* Chrome, Safari, Opera */
+    filter: invert(40%);
+		}
+	}
+
+	@keyframes saturate{
+		from{
+			  -webkit-filter: saturate(0%); /* Chrome, Safari, Opera */
+    filter: saturate(0%);
+		}
+
+		to{
+			   -webkit-filter: saturate(800%); /* Chrome, Safari, Opera */
+    filter: saturate(800%);
+		}
+	}
+
+
+	 
+</style>
+
+<body>
+
+	<section>
+		<div>
+		<img src="pic.jpg" alt="">	
+			
+		</div>
+	</section>
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	
+</body>
+</html>
