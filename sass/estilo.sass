@@ -1,0 +1,57 @@
+@import partial
+
+$cor: blue
+$margin: 10px
+
+body
+	background-color: $cor
+
+
+nav
+
+	ul
+		list-style-type: none
+		background-color: #fff
+
+		li
+			display: inline
+
+		a
+			font-size: 20px
+			font-color: #000
+			margin: $margin
+
+
+a
+	font-family: Comic Sans MS
+
+
+=border-radius($radius)
+	-webkit-border-radius: $radius
+	-moz-border-radius:    $radius
+	-ms-border-radius:     $radius
+	border-radius:         $radius
+
+
+.box
+
+	+border-radius(10px)
+
+
+.mensagem
+	padding: 20px
+	font-size: 14px
+	background-color: #f4f4f4
+
+
+.erro
+	@extend .mensagem
+	border: 1px solid red
+
+.sucesso
+	@extend .mensagem
+	border: 2px solid green
+
+
+div
+	width: (960px / 20px) * 100% + 1%

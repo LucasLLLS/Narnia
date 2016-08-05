@@ -1,0 +1,41 @@
+section {
+  padding: 15px;
+  color: yellow; }
+
+body {
+  background-color: blue; }
+
+nav ul {
+  list-style-type: none;
+  background-color: #fff; }
+  nav ul li {
+    display: inline; }
+  nav ul a {
+    font-size: 20px;
+    font-color: #000;
+    margin: 10px; }
+
+a {
+  font-family: Comic Sans MS; }
+
+.box {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px; }
+
+.mensagem, .erro, .sucesso {
+  padding: 20px;
+  font-size: 14px;
+  background-color: #f4f4f4; }
+
+.erro {
+  border: 1px solid red; }
+
+.sucesso {
+  border: 2px solid green; }
+
+div {
+  width: 4801%; }
+
+/*# sourceMappingURL=estilo.css.map */
