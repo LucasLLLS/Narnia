@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<style>
+
+body{
+	overflow-x: hidden;
+}
+
+	#carousel{
+		position: absolute;
+		left: 50%;
+	}
+
+	.display-inline{
+		display: -webkit-box;
+	}
+
+	.item{
+		padding: 20px;
+		max-width: 600px;
+		opacity: .2;
+	}
+
+	.item.selected{
+		opacity: 1;
+	}
+
+	.item img{
+		max-width: 100%;
+		height: auto;
+	}
+
+	.buttons{
+		position: relative;
+	}
+
+	.item.selected:after{
+	    content: '>';
+	    margin-top: -450px;
+	    line-height: 450px;
+	    float: right;
+	    margin-right: -20px;
+	}
+
+	.item.selected:before{
+	    content: '<';
+	    line-height: 450px;
+	    float: left;
+	    margin-left: -20px;
+	}
+</style>
+
+<body>
+
+	<div class="display-inline" id="carousel">
+		
+		<div class="item">
+			<img src="1.jpg" alt="">
+		</div>
+
+		<div class="item selected">
+			<img src="2.jpg" alt="">
+		</div>
+
+		<div class="item">
+			<img src="3.jpg" alt="">
+		</div>
+
+	</div>
+
+	<div class="buttons">
+		<button class="prev">Prev</button>
+		<button class="next">Next</button>
+	</div>
+
+	
+
+
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+	<script>
+
+		$(document).ready(function(){
+			var alignment = 0;
+			var count = 1;
+			var images = [];
+
+			$('.item').each(function(){
+
+				$(this).attr('data-count', count);
+				images.push($(this).attr('src'));
+
+				alignment += $(this).width() + 40;
+				count++;
+
+			});
+
+			alignment = (alignment/2) * -1;
+			console.log(alignment);
+
+			$('#carousel').css({'margin-left': alignment});
+
+
+			$('.next').click(function(){
+					
+					var first_el = $('[data-count="1"]').find('img').attr('src');
+
+				$('.item img').each(function(){
+
+					var this_is = $(this).parent().data('count');
+					var next = this_is + 1;
+					var next_el = $('[data-count="'+next+'"]');
+
+					console.log(first_el);
+
+					if(next>3){
+
+						/*console.log($('[data-count="'+this_is+'"]').find('img').attr('src'));*/
+						$(this).fadeOut();
+						$(this).attr('src', first_el);
+						$(this).fadeIn();
+						console.log('mudou pro primeiro');
+
+					}else{
+						$(this).fadeOut();
+						$(this).attr('src', next_el.find('img').attr('src'));
+						$(this).fadeIn();
+
+						console.log('mudou pro proximo');
+					}
+
+				});
+
+			});
+
+
+
+
+			$('.prev').click(function(){
+					
+					var first_el = $('[data-count="3"]').find('img').attr('src');
+
+				$($('.item img').get().reverse()).each(function(){
+
+					var this_is = $(this).parent().data('count');
+					var next = this_is - 1;
+					var next_el = $('[data-count="'+next+'"]');
+
+					console.log(this_is);
+
+					if(next==1){
+
+						$(this).fadeOut();
+						$(this).attr('src', first_el);
+						$(this).fadeIn();
+						console.log('mudou pro primeiro');
+
+						/*console.log($('[data-count="'+this_is+'"]').find('img').attr('src'));*/
+						
+					}else{
+
+						$(this).fadeOut();
+						$(this).attr('src', next_el.find('img').attr('src'));
+						$(this).fadeIn();
+
+						console.log('mudou pro proximo');
+					}
+
+				});
+
+			});
+
+		});
+
+	</script>
+	
+</body>
+</html>
